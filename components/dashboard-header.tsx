@@ -28,6 +28,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
+// @ts-expect-error: classNames function can accept any type of arguments
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
