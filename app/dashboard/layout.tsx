@@ -1,4 +1,3 @@
-import DashboardFooter from "@/components/dashboard-footer";
 import DashboardSidebar from "@/components/dashboard-sidebar";
 import type { Metadata } from "next";
 
@@ -15,7 +14,7 @@ export default function DashboardLayout({
   return (
     <>
       <DashboardSidebar>{children}</DashboardSidebar>
-      <DashboardFooter />
+      {/* <DashboardFooter /> */}
     </>
   );
 }

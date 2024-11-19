@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function DashboardFooter() {
   return (
-    <footer className="w-full bg-black text-white z-30">
+    <footer className="w-full bg-black text-white z-50">
       <div className="container mx-auto px-4">
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center justify-between py-6 border-b border-gray-800">

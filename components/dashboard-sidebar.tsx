@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Button,
   Dialog,
   DialogBackdrop,
   DialogPanel,
@@ -19,6 +18,7 @@ import {
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
@@ -37,7 +37,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-// @ts-expect-error
+// @ts-expect-error: classNames function can accept any type of arguments
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -56,7 +56,7 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
         <Dialog
           open={sidebarOpen}
           onClose={setSidebarOpen}
-          className="relative z-50 lg:hidden"
+          className="relative z-40 lg:hidden"
         >
           <DialogBackdrop
             transition
@@ -237,13 +237,13 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
                   </Menu>
 
                   {/* logout button */}
-                  <Button
-                    // href="/dashboard/home"
+                  <Link
+                    href="/login"
                     //   type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Logout
-                  </Button>
+                  </Link>
                 </div>
               </div>
             </div>
