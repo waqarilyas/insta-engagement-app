@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/hooks/useAuth";
 import {
   Dialog,
   DialogBackdrop,
@@ -21,6 +22,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Button } from "./ui/button";
 
 const navigation = [
   { name: "Home", href: "/dashboard/home", icon: HomeIcon, current: true },
@@ -48,10 +50,10 @@ interface DashboardSidebarProps {
 
 export default function DashboardSidebar({ children }: DashboardSidebarProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { logout, user } = useAuth();
 
   return (
     <>
-      {/* <DashboardHeader /> */}
       <div>
         <Dialog
           open={sidebarOpen}
@@ -133,10 +135,11 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <Avatar className="w-10 h-10">
-                <AvatarImage src="/placeholder.svg" alt="Profile" />
-                <AvatarFallback>AK</AvatarFallback>
-              </Avatar>
+              <img
+                alt="Your Company"
+                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                className="h-8 w-auto"
+              />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -214,8 +217,11 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
                     <MenuButton className="-m-1.5 flex items-center p-1.5">
                       <div className="flex h-16 shrink-0 items-center">
                         <Avatar className="w-10 h-10">
-                          <AvatarImage src="/placeholder.svg" alt="Profile" />
-                          <AvatarFallback>AK</AvatarFallback>
+                          <AvatarImage
+                            src={user?.profile_picture_url}
+                            alt="Profile"
+                          />
+                          <AvatarFallback>{user?.name}</AvatarFallback>
                         </Avatar>
                       </div>
                     </MenuButton>
@@ -237,13 +243,13 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
                   </Menu>
 
                   {/* logout button */}
-                  <Link
-                    href="/login"
+                  <Button
+                    onClick={logout}
                     //   type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Logout
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </div>

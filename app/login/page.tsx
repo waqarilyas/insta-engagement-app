@@ -1,5 +1,6 @@
 "use client";
 
+import Instagram from "next-auth/providers/instagram";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -108,13 +109,8 @@ export default function Login() {
 
                 <div className="mt-6 ">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/oauth/authorize?enable_fb_login=0&force_authentication=1&client_id=1083846249714676&redirect_uri=https://localhost:3000/api/auth/callback&response_type=code&scope=instagram_business_basic%2Cinstagram_business_manage_messages%2Cinstagram_business_manage_comments%2Cinstagram_business_content_publish"
                     className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
-                    onClick={() =>
-                      window.open(
-                        "https://www.instagram.com/oauth/authorize?enable_fb_login=0&force_authentication=1&client_id=1083846249714676&redirect_uri=https://2s28wnh7-3000.inc1.devtunnels.ms/api/auth/callback/instagram&response_type=code&scope=instagram_business_basic%2Cinstagram_business_manage_messages%2Cinstagram_business_manage_comments%2Cinstagram_business_content_publish"
-                      )
-                    }
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -138,6 +134,7 @@ export default function Login() {
                         fill="#34A853"
                       />
                     </svg>
+
                     <span className="text-sm/6 font-semibold">
                       Login with Instagram
                     </span>

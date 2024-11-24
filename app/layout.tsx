@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
 import { getSession } from "@/auth";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -33,6 +34,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers session={session}>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   );
