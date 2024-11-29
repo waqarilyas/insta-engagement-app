@@ -9,6 +9,7 @@ import {
 } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const user = {
   name: "Tom Cook",
@@ -40,10 +41,12 @@ export default function DashboardHeader() {
         <div className="relative flex h-16 justify-between">
           <div className="relative z-10 flex px-2 lg:px-0">
             <div className="flex shrink-0 items-center">
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+              <Image
+                alt="Insta Engagement App"
+                src="/logo.svg"
                 className="h-8 w-auto"
+                height={100}
+                width={200}
               />
             </div>
           </div>

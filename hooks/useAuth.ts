@@ -19,7 +19,6 @@ export interface USER {
 
 export function useAuth() {
   const [user, setUser] = useState<USER | null>(null);
-  console.log("🚀 ~ useAuth ~ user:", user);
 
   const router = useRouter();
 

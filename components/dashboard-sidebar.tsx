@@ -23,6 +23,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const navigation = [
   { name: "Home", href: "/dashboard/home", icon: HomeIcon, current: true },
@@ -135,10 +136,12 @@ export default function DashboardSidebar({ children }: DashboardSidebarProps) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
+              <Image
+                alt="Insta Engagement App"
+                src="/logo.svg"
+                className="h-12 w-auto"
+                height={100}
+                width={200}
               />
             </div>
             <nav className="flex flex-1 flex-col">

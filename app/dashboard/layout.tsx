@@ -1,4 +1,4 @@
-import DashboardSidebar from "@/components/dashboard-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <>
-      <DashboardSidebar>{children}</DashboardSidebar>
+      <SidebarProvider>{children}</SidebarProvider>
       {/* <DashboardFooter /> */}
     </>
   );
