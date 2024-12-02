@@ -61,6 +61,7 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         "primary-card-background": "hsla(0, 0%, 98%, 1)",
+        "primary-background": "#FAFAFA",
       },
       borderRadius: {
         lg: "var(--radius)",

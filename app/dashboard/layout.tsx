@@ -1,3 +1,4 @@
+import { MainLayout } from "@/components/layout/main-layout";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
 
@@ -13,8 +14,9 @@ export default function DashboardLayout({
 }>) {
   return (
     <>
-      <SidebarProvider>{children}</SidebarProvider>
-      {/* <DashboardFooter /> */}
+      <SidebarProvider>
+        <MainLayout>{children}</MainLayout>
+      </SidebarProvider>
     </>
   );
 }

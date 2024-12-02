@@ -1,50 +1,59 @@
-import { MainLayout } from "@/components/layout/main-layout";
 import Post from "@/components/post";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
-const POSTS = [
-  {
-    author: "YOU",
-    content:
-      "Traveling is the therapy for the soul. It feels like second you can't tell anyone about. Mountain's tell us you like no one else could in the blank mid winter, which are the advice for the heart and soul.",
-    likes: 24,
-    comments: 24,
-    timeAgo: "4 days ago",
-  },
-  {
-    author: "Elsa Jones",
-    content:
-      "Reminiscing the chill day kindle living room in the main chair in our house. #interiordesign #design #livingroom",
-    likes: 34,
-    comments: 18,
-    timeAgo: "2 days ago",
-  },
-];
-
-export default function Home() {
+export default function Page() {
   return (
-    <MainLayout>
-      <div className="space-y-4 w-full flex items-center justify-center flex-col">
-        <Tabs
-          defaultValue="account"
-          className="w-full items-center justify-center flex flex-col"
-        >
-          <TabsList defaultValue="posts">
-            <TabsTrigger value="posts">All Posts</TabsTrigger>
-            <TabsTrigger value="allComments">
-              No comment for last 30 days
-            </TabsTrigger>
-            <TabsTrigger value="myComments">My comments</TabsTrigger>
-          </TabsList>
-          <TabsContent value="posts">
-            {POSTS.map((post, i) => (
-              <Post key={i} {...post} />
-            ))}
-          </TabsContent>
-          <TabsContent value="allComments">All Comments</TabsContent>
-          <TabsContent value="myComments">My Comments </TabsContent>
-        </Tabs>
+    <main className="p-6 bg-white rounded overflow-hidden">
+      <div className="w-full mb-8">
+        <div className="flex items-center justify-between p-4">
+          <h1 className="text-lg font-semibold">Homepage</h1>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+          <span className="text-sm text-muted-foreground">
+            No comments for last 30 days
+          </span>
+          <div className="flex gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  Location <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Remote</DropdownMenuItem>
+                <DropdownMenuItem>On-site</DropdownMenuItem>
+                <DropdownMenuItem>Hybrid</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  Lead <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Wants to sell</DropdownMenuItem>
+                <DropdownMenuItem>Wants to buy</DropdownMenuItem>
+                <DropdownMenuItem>Not in the market</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
       </div>
-    </MainLayout>
+
+      {/* Post */}
+      <div className="rounded-lg bg-primary-background  ">
+        <Post />
+        <Post />
+        <Post />
+      </div>
+    </main>
   );
 }

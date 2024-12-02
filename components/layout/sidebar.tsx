@@ -1,76 +1,52 @@
-"use client";
-
-import { Home, LogOut, Menu } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { Avatar } from "../ui/avatar";
-import { Button } from "../ui/button";
 import {
-  Sidebar as ShadcnSidebar,
+  Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar";
-import { useSidebar } from "@/components/ui/sidebar";
 
-export function Sidebar() {
-  const { isMobile } = useSidebar();
-
+export function AppSidebar() {
   return (
-    <ShadcnSidebar>
-      <SidebarHeader>
-        <div className="flex items-center gap-3 p-4">
-          <Avatar>
-            <img
-              alt="User avatar"
-              src="/placeholder.svg?height=32&width=32"
-              className="rounded-full"
-              height={32}
-              width={32}
-            />
+    <Sidebar className=" ">
+      <SidebarHeader className="bg-white">
+        <div className="flex items-center space-x-3 mb-8 px-4 py-2">
+          <Avatar className="h-12 w-12">
+            <AvatarImage src="/placeholder.svg" alt="Zar Wali Khan" />
+            <AvatarFallback>ZW</AvatarFallback>
           </Avatar>
-          <div className="flex-1">
-            <p className="text-sm font-medium">Zar Wali Khan</p>
+          <div>
+            <h2 className="font-semibold">Zar Wali Khan</h2>
           </div>
         </div>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className=" bg-white">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild>
-              <Link href="#" className="flex items-center gap-3">
-                <Home className="h-4 w-4" />
-                Home
+            <SidebarMenuButton asChild isActive>
+              <Link href="/" className="flex items-center space-x-2">
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                <span>Home</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton className="w-full justify-start">
-              <LogOut className="mr-2 h-4 w-4" />
-              Logout
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
-      {isMobile && (
-        <SidebarTrigger asChild>
-          <Button
-            variant="outline"
-            size="icon"
-            className="fixed bottom-4 right-4 z-50"
-          >
-            <Menu className="h-4 w-4" />
-            <span className="sr-only">Toggle Sidebar</span>
-          </Button>
-        </SidebarTrigger>
-      )}
-    </ShadcnSidebar>
+    </Sidebar>
   );
 }
