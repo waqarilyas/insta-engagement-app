@@ -10,29 +10,32 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
 
 export function Header() {
   return (
-    <header className="border-b bg-white">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="border-b bg-white z-50 sticky inset-0">
+      <div className=" px-14 flex items-center justify-between py-7">
         <Link href="/" className="flex items-center space-x-1">
-          <span className="text-2xl font-bold">
-            <span className="text-pink-500">IN</span>
-            <span className="text-purple-500">STA</span>
-          </span>
-          <span className="text-xs text-gray-600">ENGAGEMENT APP</span>
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={32}
+            height={32}
+            className=" h-10 w-full"
+          />
         </Link>
         <div className="flex items-center space-x-4">
-          <div className="relative">
+          <div className="relative h-full">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
             <Input
               placeholder="Search"
-              className="pl-8 w-[300px] bg-gray-100 rounded-full"
+              className="pl-8 w-[300px] bg-gray-100 rounded-full py-"
             />
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Avatar className="h-8 w-8 cursor-pointer">
+              <Avatar className=" h-11 w-11 cursor-pointer">
                 <AvatarImage src="/placeholder.svg" alt="User" />
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>

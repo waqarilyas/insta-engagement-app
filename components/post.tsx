@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,37 +12,46 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Heart, MessageCircle, ChevronDown } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { ChevronDown, Heart, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Post() {
   return (
-    <Card className="shadow-none border-none bg-primary-background mx-auto">
-      <CardHeader className="space-y-4">
-        <div className="flex items-start justify-between">
-          <div className="flex gap-3">
-            <Avatar className="h-10 w-10">
+    <Card className="shadow-none border-none bg-primary-background mx-auto max-w-4xl p-4 sm:p-6 mb-2">
+      <CardHeader className="space-y-4 p-0">
+        {/* User Info and Dropdown Sections */}
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+          {/* Profile Section */}
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <Avatar className="h-10 w-10 sm:h-12 sm:w-12 shrink-0">
               <AvatarImage src="/placeholder.svg" alt="Profile picture" />
               <AvatarFallback>B</AvatarFallback>
             </Avatar>
-            <div>
-              <div className="flex items-center gap-2">
-                <h2 className="font-semibold">Behzad</h2>
-                <span className="text-sm text-muted-foreground">
+            <div className="flex-grow">
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="font-semibold text-sm sm:text-base">Behzad</h2>
+                <span className="text-xs sm:text-sm text-muted-foreground">
                   • 128 Followers
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 Hey there, I am steve jobs with tons of exp working with
                 different people
               </p>
             </div>
           </div>
-          <div className="flex gap-2">
+
+          {/* Dropdown Buttons */}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-end gap-2 w-full sm:w-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="gap-2">
-                  Location <ChevronDown className="h-4 w-4" />
+                <Button
+                  variant="ghost"
+                  className="gap-2 w-full sm:w-auto bg-primary-dark-background rounded-full text-xs sm:text-base"
+                >
+                  Location <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -54,8 +62,11 @@ export default function Post() {
             </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="gap-2">
-                  Lead <ChevronDown className="h-4 w-4" />
+                <Button
+                  variant="outline"
+                  className="gap-2 w-full sm:w-auto bg-primary-dark-background rounded-full text-xs sm:text-base"
+                >
+                  Lead <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -67,84 +78,128 @@ export default function Post() {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
+
+      <CardContent className="space-y-4 p-0 mt-4 sm:mt-6">
+        {/* Image Section */}
         <div className="overflow-hidden rounded-lg">
           <Image
             src="/placeholder.svg"
             alt="Mountain landscape at sunset"
             width={600}
-            height={400}
-            className="w-full object-cover"
+            height={300}
+            className="w-full h-48 sm:h-[400px] object-cover"
           />
         </div>
+
+        {/* Post Content */}
         <div className="space-y-2">
-          <p className="text-sm">
+          <p className="text-xs sm:text-base">
             Travelling is the therapy for the soul. It heals the wound you
             can&apos;t tell anyone about. Mountains talk to you like no one else
             could. In the bleak mid winter, winds are the solace for the heart
             and soul...{" "}
-            <Link href="#" className="text-primary hover:underline">
+            <Link
+              href="#"
+              className="text-primary hover:underline font-semibold text-xs sm:text-base"
+            >
               Read More
             </Link>
           </p>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="gap-2">
-              <Heart className="h-4 w-4" /> 24 Likes
+
+          {/* Interaction Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Button variant="ghost" className="gap-2 text-xs sm:text-base">
+              <Heart className="h-3 w-3 sm:h-4 sm:w-4" />{" "}
+              <span className="font-semibold">24</span> Likes
             </Button>
-            <Button variant="ghost" size="sm" className="gap-2">
-              <MessageCircle className="h-4 w-4" /> 24 Comment
+            <Button variant="ghost" className="gap-2 text-xs sm:text-base">
+              <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4" />{" "}
+              <span className="font-semibold">24</span> Comment
             </Button>
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-4 w-full">
-          <div className="overflow-hidden rounded-lg">
-            <Image
-              src="/placeholder.svg?height=200&width=300"
-              alt="Mountain landscape thumbnail"
-              width={300}
-              height={200}
-              className="w-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden rounded-lg">
-            <Image
-              src="/placeholder.svg?height=200&width=300"
-              alt="Sunset landscape thumbnail"
-              width={300}
-              height={200}
-              className="w-full object-cover brightness-75"
-            />
+
+      <Separator className="my-4 sm:my-6" />
+
+      <CardFooter className="flex flex-col gap-4 p-0">
+        {/* Footer Content */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 overflow-x-auto pb-4">
+          <Card className="w-full sm:w-72 overflow-hidden border-2 border-[#9333EA] rounded-3xl shrink-0">
+            <div className="relative h-48 rounded-3xl overflow-hidden">
+              <Image
+                src="/placeholder.svg"
+                alt="Mountain landscape at sunset"
+                className="object-cover"
+                fill
+              />
+            </div>
+            <div className="p-4">
+              <p className="text-xs sm:text-sm text-gray-800 font-extralight">
+                Travelling is the therapy for the soul. It heals the wounds you
+                can&apos;t tell anyo...
+              </p>
+            </div>
+          </Card>
+
+          <Card className="w-full sm:w-72 overflow-hidden border rounded-3xl border-none shadow-none bg-primary-background shrink-0">
+            <div className="relative h-48 rounded-3xl overflow-hidden">
+              <Image
+                src="/placeholder.svg"
+                alt="Dramatic sky with clouds"
+                className="object-cover"
+                fill
+              />
+            </div>
+            <div className="p-4">
+              <p className="text-xs sm:text-sm text-gray-800 font-extralight">
+                Sometimes all you need is a ray of sunshine that overtakes the
+                darkness...
+              </p>
+            </div>
+          </Card>
+
+          <div className="flex-1 w-full sm:w-auto">
+            <h3 className="font-semibold text-sm sm:text-base">Last Comment</h3>
+            <div className="text-xs sm:text-sm text-gray-500 mb-2">
+              40 days ago
+            </div>
+            <p className="text-xs sm:text-sm leading-5">
+              That looks promising. We have been designing the wabi sabi
+              products for our clients. Would love to work together to explore
+              more interesting design projects.
+            </p>
           </div>
         </div>
-        <div className="w-full space-y-4">
-          <div className="flex justify-between items-center">
-            <div className="text-sm">
-              <span className="font-semibold">Last Comment</span>
-              <span className="text-muted-foreground ml-2">40 days ago</span>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            That looks promising. We have been designing the web sabl products
-            for our client. Would love to work together to explore more
-            interesting design projects.
-          </p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Avatar className="h-8 w-8">
-                <AvatarImage src="/placeholder.svg" alt="Your profile" />
-                <AvatarFallback>Y</AvatarFallback>
-              </Avatar>
-              <span className="text-sm font-semibold">YOU</span>
-              <span className="text-sm text-muted-foreground">
+
+        {/* Bottom Action Section */}
+        <div className="flex flex-col sm:flex-row items-center justify-between mt-4 sm:mt-8 w-full gap-4 sm:gap-0">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
+              <Image
+                src="/placeholder.svg"
+                alt="User avatar"
+                width={40}
+                height={40}
+              />
+            </Avatar>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-red-500 font-semibold">
+              <span className="text-xs sm:text-base">YOU</span>
+              <span className="text-xs sm:text-sm">
                 • No comment since last 30 days
               </span>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline">Skip this Post</Button>
-              <Button>Add Comment</Button>
-            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0">
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto rounded-full hover:bg-gray-50 text-xs sm:text-base"
+            >
+              Skip this Post
+            </Button>
+            <Button className="w-full sm:w-auto rounded-full bg-[#9333EA] hover:bg-[#7928CA] text-xs sm:text-base">
+              Add Comment
+            </Button>
           </div>
         </div>
       </CardFooter>

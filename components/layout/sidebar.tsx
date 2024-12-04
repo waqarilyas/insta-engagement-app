@@ -1,52 +1,45 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
+import { Home } from "lucide-react";
+import Link from "next/link";
 
 export function AppSidebar() {
   return (
-    <Sidebar className=" ">
-      <SidebarHeader className="bg-white">
-        <div className="flex items-center space-x-3 mb-8 px-4 py-2">
-          <Avatar className="h-12 w-12">
-            <AvatarImage src="/placeholder.svg" alt="Zar Wali Khan" />
-            <AvatarFallback>ZW</AvatarFallback>
-          </Avatar>
-          <div>
-            <h2 className="font-semibold">Zar Wali Khan</h2>
+    <>
+      <Sidebar className="p-7 bg-white z-40 mt-24">
+        <SidebarHeader className="">
+          <div className="flex items-center space-x-3">
+            <Avatar className="h-16 w-16">
+              <AvatarImage src="/placeholder.svg" alt="Zar Wali Khan" />
+              <AvatarFallback>ZW</AvatarFallback>
+            </Avatar>
+            <div>
+              <h2 className=" font-bold">Zar Wali Khan</h2>
+            </div>
           </div>
-        </div>
-      </SidebarHeader>
-      <SidebarContent className=" bg-white">
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive>
-              <Link href="/" className="flex items-center space-x-2">
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
-                <span>Home</span>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarContent>
-    </Sidebar>
+        </SidebarHeader>
+        <SidebarSeparator className=" my-4" />
+        <SidebarContent className="  mt-2">
+          <SidebarMenu>
+            <SidebarMenuItem className=" bg-sidebar-accent rounded p-2">
+              <SidebarMenuButton asChild isActive>
+                <Link href="/" className="flex items-center space-x-2">
+                  <Home className="h-8 w-8" />
+                  <span className="text-base font-bold">Home</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarContent>
+      </Sidebar>
+    </>
   );
 }

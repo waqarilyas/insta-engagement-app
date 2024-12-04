@@ -62,6 +62,8 @@ export default {
         },
         "primary-card-background": "hsla(0, 0%, 98%, 1)",
         "primary-background": "#FAFAFA",
+        "primary-dark-background": "hsla(0, 0%, 93%, 1)",
+        "primary-purple": "hsla(287, 92%, 35%, 1)",
       },
       borderRadius: {
         lg: "var(--radius)",
