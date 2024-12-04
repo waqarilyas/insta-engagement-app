@@ -1,21 +1,24 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { Home } from "lucide-react";
+import { Home, LogOutIcon } from "lucide-react";
 import Link from "next/link";
 
 export function AppSidebar() {
   return (
     <>
-      <Sidebar className="p-7 bg-white z-40 mt-24">
-        <SidebarHeader className="">
+      <Sidebar className="p-7 bg-white z-40">
+        <SidebarHeader className="pt-0 md:pt-24">
           <div className="flex items-center space-x-3">
             <Avatar className="h-16 w-16">
               <AvatarImage src="/placeholder.svg" alt="Zar Wali Khan" />
@@ -39,6 +42,13 @@ export function AppSidebar() {
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarContent>
+
+        <SidebarFooter>
+          <Link href="/" className="flex items-center space-x-4">
+            <LogOutIcon className="h-6 w-6" />
+            <span className="text-base font-bold">Logout</span>
+          </Link>
+        </SidebarFooter>
       </Sidebar>
     </>
   );

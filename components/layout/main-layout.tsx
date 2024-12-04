@@ -9,7 +9,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         <Header />
         <div className="flex gap-8 mt-8">
           <AppSidebar />
-          <main>{children}</main>
+          <main className="w-full ">{children}</main>
         </div>
       </div>
     </SidebarProvider>

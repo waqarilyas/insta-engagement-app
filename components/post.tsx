@@ -125,8 +125,8 @@ export default function Post() {
       <CardFooter className="flex flex-col gap-4 p-0">
         {/* Footer Content */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 overflow-x-auto pb-4">
-          <Card className="w-full sm:w-72 overflow-hidden border-2 border-[#9333EA] rounded-3xl shrink-0">
-            <div className="relative h-48 rounded-3xl overflow-hidden">
+          <Card className="w-full sm:w-72 overflow-hidden rounded-3xl shrink-0 shadow-none border-none bg-primary-background">
+            <div className="relative h-48 rounded-3xl overflow-hidden  border-2 border-primary-purple">
               <Image
                 src="/placeholder.svg"
                 alt="Mountain landscape at sunset"

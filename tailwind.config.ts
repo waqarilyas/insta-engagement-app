@@ -64,6 +64,7 @@ export default {
         "primary-background": "#FAFAFA",
         "primary-dark-background": "hsla(0, 0%, 93%, 1)",
         "primary-purple": "hsla(287, 92%, 35%, 1)",
+        "primary-grey-text": "hsla(0, 0%, 0%, 1)",
       },
       borderRadius: {
         lg: "var(--radius)",
